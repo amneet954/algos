@@ -9,44 +9,33 @@ const same = (arr1, arr2) => {
     console.log("False. Array lengths are not the same");
     return false;
   }
-  arr1.sort();
-  arr2.sort();
-  let a = 0;
 
+  let counter1 = {};
+  let counter2 = {};
+
+  for (let i = 0; i < arr1.length; i++) {
+    let current = arr1[i];
+    counter1[current] = (counter1[current] || 0) + 1;
+  }
   for (let i = 0; i < arr2.length; i++) {
     let current = arr2[i];
+    counter2[current] = (counter2[current] || 0) + 1;
+  }
 
-    if (arr1[a] * arr1[a] === current) {
-      a++;
-    } else {
+  for (let key in counter1) {
+    if (counter1[key] !== counter2[key ** 2]) {
       console.log("False. Frequency of values are not identical");
       return false;
     }
   }
+
   console.log("True");
 };
-
-//Alternative Solution
-
-// const same = (arr1, arr2) => {
-//   if (arr1.length !== arr2.length) return false;
-
-//   let counter1 = {};
-//   let counter2 = {};
-
-//   for (let value of arr1) {
-//     counter1[value] = (counter1[value] || 0) + 1;
-//   }
-//   for (let value of arr2) {
-//     counter2[value] = (counter2[value] || 0) + 1;
-//   }
-//   for (let key in counter1) {
-//     if (!(key ** 2 in counter2)) return false;
-//     if (counter2[key ** 2] !== counter1[key]) return false;
-//   }
-// };
 
 //Test Cases
 same([1, 2, 3], [4, 1, 9]);
 same([1, 2, 3], [1, 9]);
 same([1, 2, 1], [4, 4, 1]);
+same([12, 5, 11, 5, 5], [25, 25, 25, 121, 144]);
+
+//Best Complexity O(1) & Worst Complexity O(n)
