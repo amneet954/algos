@@ -39,4 +39,4 @@ same([1, 2, 3], [1, 9]);
 same([1, 2, 1], [4, 4, 1]);
 same([12, 5, 11, 5, 5], [25, 25, 25, 121, 144]);
 
-//Best Complexity O(1) & Worst Complexity O(n)
+//Best Time Complexity: O(1) & Worst Time Complexity: O(n)

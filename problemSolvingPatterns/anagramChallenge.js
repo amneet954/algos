@@ -38,4 +38,4 @@ validAnagram("awesome", "awesom"); //false
 validAnagram("qwerty", "qeywrt"); //true
 validAnagram("texttwisttime", "timetwisttext"); //true
 
-//Best Complexity O(1) & Worst Complexity O(n)
+//Best Time Complexity: O(1) & Worst TimeComplexity: O(n)
