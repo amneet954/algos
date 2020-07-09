@@ -23,6 +23,7 @@ const same = (arr1, arr2) => {
   }
 
   for (let key in counter1) {
+    if (!counter2[key ** 2]) return false;
     if (counter1[key] !== counter2[key ** 2]) {
       console.log("False. Frequency of values are not identical");
       return false;

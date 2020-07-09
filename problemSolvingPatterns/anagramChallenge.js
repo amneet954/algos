@@ -1,33 +1,31 @@
-//Given 2 string, write a function to find out if the second string is an anagram of the first.
+//This problem solving method uses objects or sets to collect values/frequencies of values.
+//A definite advantage over use nested loops that will cause an O(n^2) complexity
+//This method is usually O(n)
 
-const validAnagram = (string1, string2) => {
-  if (string1.length !== string2.length) {
-    console.log("False. String Lengths do not match.");
-    return false;
-  }
+//Problem: Given 2 string, write a function to find out if the second string is an anagram of the first.
+
+const validAnagram = (str1, str2) => {
+  string1.toLowerCase();
+  string2.toLowerCase();
+  if (str1.length !== str2.length) return false;
 
   let counter1 = {};
   let counter2 = {};
 
-  for (let i = 0; i < string1.length; i++) {
-    let current = string1[i];
+  for (let i = 0; i < str1.length; i++) {
+    let current = str1[i];
     counter1[current] = (counter1[current] || 0) + 1;
-    counter1[current]++;
   }
 
-  for (let i = 0; i < string2.length; i++) {
-    let current = string2[i];
+  for (let i = 0; i < str2.length; i++) {
+    let current = str2[i];
     counter2[current] = (counter2[current] || 0) + 1;
-    counter2[current]++;
   }
 
   for (let key in counter1) {
-    if (counter1[key] !== counter2[key]) {
-      console.log("False. Frequency of values are not identical");
-      return false;
-    }
+    if (!counter2[key]) return false;
+    if (counter1[key] !== counter2[key]) return false;
   }
-
   return true;
 };
 
