@@ -4,6 +4,8 @@ const sameFrequency = (number1, number2) => {
   let number1String = number1.toString();
   let number2String = number2.toString();
 
+  if (number1String.length !== number2String.length) return false;
+
   let counter1 = {};
   let counter2 = {};
 

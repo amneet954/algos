@@ -10,6 +10,7 @@ const divideAndConquer = (array, number) => {
   while (start <= end) {
     let middle = Math.ceil((start + end) / 2);
     let currentValue = array[middle];
+
     if (currentValue > number) end = middle - 1;
     else if (currentValue < number) start = middle + 1;
     else return middle;
