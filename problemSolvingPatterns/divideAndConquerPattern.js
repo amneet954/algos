@@ -4,25 +4,18 @@
 //Problem: We have an array of sorted integers. Create a function that accepts the second argument value and returns the index of where the value is found, within the array. If the value is not in the array at all, return -1
 
 const divideAndConquer = (array, number) => {
-  if (array.length < 1) return -1;
-
+  let start = 0;
   let end = array.length - 1;
-  let middle = Math.ceil(end / 2);
 
-  if (array[middle] === number) return middle;
-  else if (array[middle] < number) {
-    let a = middle;
-    while (array[a] < number) a++;
-    if (array[a] !== number) return -1;
-    else return a;
-  } else if (array[middle] > number) {
-    let a = 0;
-    while (array[middle] > number) a++;
-    if (array[a] !== number) return -1;
-    else return a;
-  } else {
-    return -1;
+  while (start <= end) {
+    let middle = Math.ceil((start + end) / 2);
+    let currentValue = array[middle];
+    if (currentValue > number) end = middle - 1;
+    else if (currentValue < number) start = middle + 1;
+    else return middle;
   }
+
+  return -1;
 };
 
 //Alternate Solution
