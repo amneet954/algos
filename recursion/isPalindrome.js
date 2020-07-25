@@ -11,11 +11,7 @@ const isPalindrome = (string) => {
 };
 
 console.log(`Answer: ${isPalindrome("awesome")}`); //false
-
 console.log(`Answer: ${isPalindrome("foobar")}`); //false
-
 console.log(`Answer: ${isPalindrome("tacocat")}`); //true
-
 console.log(`Answer: ${isPalindrome("amanaplanacanalpanama")}`); //true
-
 console.log(`Answer: ${isPalindrome("amanaplanacanalpandemonium")}`); //false
