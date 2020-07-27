@@ -15,3 +15,35 @@ console.log(`Answer: ${flatten([1, 2, 3, [4, 5]])}`);
 console.log(`Answer: ${flatten([1, [2, [3, 4]]])}`);
 console.log(`Answer: ${flatten([1], [2], [3])}`);
 console.log(`Answer: ${flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])}`);
+
+const capitalizeFirst = (arr) => {
+  let final = [];
+
+  const helper = (array) => {
+    if (array.length === 1)
+      return (array[0] = array[0][0].toUpperCase().concat(array[0].slice(1)));
+    array[0] = array[0][0].toUpperCase().concat(array[0].slice(1));
+    final.push[array[0]];
+  };
+
+  return final.concat(capitalizeFirst(array.slice(1)));
+};
+
+capitalizeFirst(["batman", "robin", "nightwing"]);
+
+
+const capitalizeFirst = (arr) => {
+  let final = [];
+
+  const helper = (array) => {
+    if (array.length === 1)
+      return (array[0] = array[0][0].toUpperCase().concat(array[0].slice(1)));
+    array[0] = array[0][0].toUpperCase().concat(array[0].slice(1));
+    final.push[array[0]];
+    return final.concat(capitalizeFirst(array.slice(1)));
+  };
+  helper(arr)
+  return final
+};
+
+capitalizeFirst(["batman", "robin", "nightwing"]);
