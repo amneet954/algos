@@ -32,7 +32,7 @@ const mergeSort = (array) => {
   let mid = Math.floor(array.length / 2);
 
   let leftSide = mergeSort(array.slice(0, mid));
-  let rightSide = mergeSort(array.slice(mid));
+  let rightSide = mergeSort(array.slice(mid));z 
 
   return merge(leftSide, rightSide);
 };
