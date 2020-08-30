@@ -100,17 +100,24 @@ class SinglyLinkedList {
     let placeholder = previousNode.next;
     previousNode.next = newNode;
     newNode.next = placeholder;
-    
+
     this.length += 1;
+    return this;
+  }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return null;
+    else if (index === this.length - 1) this.pop();
+    else if (index === 0) this.shift();
+
+    let previousNode = this.get(index - 1);
+
+    let placeholder = previousNode.next;
+    previousNode.next = placeholder.next;
+
+    this.length -= 1;
     return this;
   }
 }
 
 let list = new SinglyLinkedList();
-list.push("Hello");
-list.push("Bye");
-console.log(list);
-
-list.pop();
-
-console.log(list);
