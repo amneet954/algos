@@ -79,6 +79,31 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
+
+  set(index, value) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.value = value;
+      return foundNode;
+    }
+    return null;
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return null;
+    else if (index === this.length) this.push(value);
+    else if (index === 0) this.unshift(value);
+
+    let newNode = new Node(value);
+    let previousNode = this.get(index - 1);
+
+    let placeholder = previousNode.next;
+    previousNode.next = newNode;
+    newNode.next = placeholder;
+    
+    this.length += 1;
+    return this;
+  }
 }
 
 let list = new SinglyLinkedList();
