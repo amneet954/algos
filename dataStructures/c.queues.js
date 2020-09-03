@@ -1,6 +1,6 @@
-//Last In, First Out
-// The last element added in the stack will be the first element removed from the stack
-//Used for: manage function innvoations, Undo/Redo functionality(MS Word), history(React)
+//First In, First Out
+// The first element in the stack will be the first element out
+// Used for Background Task, Uploading/Downloading, Printing, Task Processing
 
 class Node {
   constructor(value) {
@@ -9,7 +9,7 @@ class Node {
   }
 }
 
-class Stack {
+class Queue {
   constructor() {
     this.first = null;
     this.last = null;
@@ -20,34 +20,33 @@ class Stack {
     let newNode = new Node(value);
     if (!this.first) {
       this.first = newNode;
-      this.last = first;
+      this.last = this.first;
     } else {
-      let originalFirst = this.first;
-      this.first = newNode;
-      this.first.next = originalFirst;
+      this.last.next = newNode;
+      this.last = newNode;
     }
+
     this.length += 1;
     return this.length;
   }
-
   remove() {
-    if (!this.head) return null;
     let placeHolder = this.first;
+    if (!this.first) return null;
 
     if (this.length === 1) {
       this.first = null;
       this.last = this.first;
     } else {
-      this.first = placeHolder.next;
+      this.first = this.first.next;
     }
 
     this.length -= 1;
-    return placeholder.value;
+    return placeHolder.value;
   }
 }
 
-//Big O of Stacks
-//Insertion - O(1)
-//Removal - O(1)
-//Search - O(N)
-//Access - O(N)
+//Big O:
+//Insertion: O(1)
+//Removal: O(1)
+//Search: O(N)
+//Access: O(N)
