@@ -18,7 +18,7 @@ class Stack {
 
   add(value) {
     let newNode = new Node(value);
-    if (!this.first) {
+    if (this.first === null) {
       this.first = newNode;
       this.last = first;
     } else {
@@ -31,7 +31,7 @@ class Stack {
   }
 
   remove() {
-    if (!this.head) return null;
+    if (this.head === null) return null;
     let placeHolder = this.first;
 
     if (this.length === 1) {

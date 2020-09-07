@@ -14,7 +14,7 @@ class SinglyLinkedList {
 
   push(value) {
     let newNode = new Node(value);
-    if (!this.head) {
+    if (this.head === null) {
       this.head = newNode;
       this.tail = this.head;
     } else {
@@ -25,13 +25,8 @@ class SinglyLinkedList {
     return this;
   }
 
-
-
-
-  
-
   pop() {
-    if (!this.head) return this;
+    if (this.head === null) return this;
     let current = this.head;
     let previousNode = current;
     while (current.next) {
@@ -50,7 +45,7 @@ class SinglyLinkedList {
   }
 
   shift() {
-    if (!this.head) return this;
+    if (this.head === null) return this;
     this.head = this.head.next;
     this.length -= 1;
     if (this.length === 0) {
@@ -62,7 +57,7 @@ class SinglyLinkedList {
 
   unshift(value) {
     let newNode = new Node(value);
-    if (!this.head) {
+    if (this.head === null) {
       this.head = newNode;
       this.tail = this.head;
     } else {
