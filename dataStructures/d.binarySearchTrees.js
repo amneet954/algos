@@ -10,6 +10,7 @@ class BinarySearchTree {
   constructor() {
     this.root = null;
   }
+
   insert(value) {
     let newNode = new Node(value);
 
@@ -37,6 +38,7 @@ class BinarySearchTree {
       }
     }
   }
+
   find(value) {
     if (this.root === null) return null;
 
@@ -50,6 +52,22 @@ class BinarySearchTree {
     }
 
     return found;
+  }
+
+  BFS() {
+    let final = [];
+    let first = this.root;
+    let queue = [];
+    queue.push(first);
+
+    while (queue.length) {
+      first = queue.shift();
+      final.push(first);
+      if (first.left) final.push(first.left);
+      if (first.right) final.push(first.right);
+    }
+
+    return final;
   }
 }
 
